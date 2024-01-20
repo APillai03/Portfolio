@@ -1,0 +1,54 @@
+html{
+    background-color: #081b29;
+}
+ul{
+    color: white;
+    font-size: 20px;
+    font-family: robotocondensed,Microsoft JhengHei,sans-serif;
+}
+li1{
+    position: absolute;
+    top: 45px;
+    left: 1300px;
+
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: #00abf0
+    ;
+    
+}
+li2{
+
+    position: absolute;
+    top: 45px;
+    left: 1400px;
+
+}
+li3{
+
+    position: absolute;
+    top: 45px;
+    left: 1500px;
+
+}
+sign{
+    position: absolute;
+    color: white;
+    top: 5px;
+    font-size: 50px;
+    left: 20px;
+    font-family: 'Parisienne', cursive;
+
+
+;
+}
+vi{
+    color: firebrick;
+}
+vi:hover{
+    color: #00abf0;
+}
