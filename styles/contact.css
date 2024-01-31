@@ -1,0 +1,37 @@
+html{
+    background-color: #081b29;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-rows: 60px;
+}
+.Options{
+    font-family: robotocondensed,Microsoft JhengHei,sans-serif;
+    text-align: end;
+    padding-top: 40px;
+    padding-right: 200px;
+}
+.logo{
+    color: white;
+    font-size: 50px;
+    font-family: 'Parisienne', cursive;
+    padding-left: 15px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+}
+a:hover{
+    color: #00abf0
+    ;
+    
+}
+vi{
+    color: firebrick;
+}
+vi:hover{
+    color: #00abf0;
+}
