@@ -33,7 +33,11 @@ body{
     margin: 18px;
 
 }
-.menu span:hover{
+.menu a{
+    text-decoration: none;
+    color: white;
+}
+.menu a:hover{
     color:  red;
 }
 .red{
