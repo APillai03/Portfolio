@@ -5,5 +5,4 @@ function setcolor(){
     $('#name').removeClass(colors.join(' ')).addClass(colors[i]);
     i++
 }
-console.log(i);
 setInterval(setcolor, 2000);
