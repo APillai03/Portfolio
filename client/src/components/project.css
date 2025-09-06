@@ -3,89 +3,98 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 500px;
+    gap: 12px;
+    margin: 80px 0 40px;
 }
 .cover h1{
-    font-size: 250px;
-    font-family: "Calligraffitti", cursive;
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
-.cover img{
-    border-radius: 50%;
-    border: 20px solid green;
-    box-shadow: 0px 0px 70px white;
+.cover .cover-sub{
+    color: var(--muted);
+    font-size: 16px;
 }
+
 .Timeline {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 20%;
-    margin-right: 20%;
-    
+    margin-left: 15%;
+    margin-right: 15%;
 }
-.container {
-    
-    width: 40%;
-    height: 200px;
-    background-color: lightblue;
-    border: 5px solid green;
-    margin: 50px;
-    box-shadow: 0px 0px 20px whitesmoke;
-    
 
+/* Central vertical line for the timeline */
+.Timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: linear-gradient(180deg, transparent, var(--primary), transparent);
+    pointer-events: none;
 }
+
+.container {
+    width: 44%;
+    min-height: 200px;
+    background-color: var(--surface-2);
+    border: 1px solid var(--border);
+    margin: 24px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-1);
+    overflow: hidden;
+}
+
 .container .pointer{
-    width: 20px;
-    height: 20px;
-    border: 2px solid white;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--text);
     border-radius: 50%;
-    left: 40%;
-    top: 10%;
+    top: 18px;
     z-index: 10;
+    background-color: var(--surface-1);
 }
+
 .left-container .pointer{
     position: relative;
-    left: 98%;
-
+    left: 100%;
+    transform: translateX(7px);
 }
+
 .right-container .pointer{
     position: relative;
-    left: -14px;
+    left: -21px;
 }
+
 .container .card {
     position: relative;
-    margin-top: -25px;
-    background-color: lightblue;
+    margin-top: -6px;
+    background-color: var(--surface-2);
     display: flex;
-
-    
-    
+    border-bottom: 1px solid var(--border);
 }
 
 .left-container {
     align-self: flex-start;
 }
+
 .right-container {
     align-self: flex-end;
 }
-.border {
-    margin-top: 50%;
-    position: relative;
-    width: 1px;
-    height: 1650%;
-    border: 2px solid white;
-    position: relative;
-    z-index: 12;
-    left: 113%;
-    background-color: white;
-    border-radius: 20px;
-}
+
+.border { display: none; }
+
 .container:first-child{
     background: transparent;
     border: transparent;
     box-shadow: none;
-
 }
+
 .container:first-child:hover {
     box-shadow: none;
     transition: none;
@@ -94,118 +103,124 @@
 
 .card {
     display: flex;
-    background-color: lightblue;
+    background-color: var(--surface-2);
 }
+
 .card .title {
-    padding-top: 16px;
+    padding: 16px 10px;
     padding-left: 10px;
     width: 50%;
 }
+
 .card .date {
-    padding-top: 16px;
+    padding: 16px 10px;
     width: 50%;
+    color: var(--muted);
 }
+
 .right-container .card .title {
     padding-right: 10px;
     text-align: end;
     order: 2;
 }
+
 .right-container .card .date {
     padding-left: 10px;
     order: 1;
 }
+
 .left-container .card .date {
     text-align: end;
     padding-right: 10px;
 }
+
 .container .content {
     display: flex;
 }
+
 .container .description {
     width: 50%;
     margin: 20px;
     text-align: left;
-    color: lightblue;
+    color: var(--text);
 }
+
 .container .picture {
-    
     width: 50%;
     height: 160px;
 }
+
 .container .picture img{
     position: relative;
     width: 98%;
     height: 98%;
     border-radius: 10px;
 }
+
 .right-container .description {
     order: 2;
     width: 100%;
 }
+
 .right-container .picture {
     order: 1;
     width: 100%;
 }
+
 .right-container .picture img{
     width: 100%;
     height: 98%;
     padding-left: 3px;
 }
+
 .container:hover {
-    transform: translateY(-20px);
-    transition: 0.5s ease-in-out;
-    box-shadow: 0px 0px 20px cyan;
+    transform: translateY(-6px);
+    transition: transform 300ms ease, box-shadow 300ms ease;
+    box-shadow: var(--shadow-1);
 }
 
 #internship {
-    box-shadow: 0 0 20px blue;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
 }
-#internship:hover {
-    box-shadow: 0 0 20px red;
-}
-@media only screen and (max-width: 1000px) {
 
+@media only screen and (max-width: 700px) {
     .cover h1 {
-        font-size: 50px;
+        font-size: 36px;
     }
-    .cover img {
-        transform: scale(0.5);
-    }
+    /* Make cards full-width and centered in a single column */
     .container{
-        width: 200px;
-        height: 20px;
-        font-size: 10px;
-        margin-bottom: 200px;
-        border: 1px solid green;
-        
-
+        width: 100%;
+        font-size: 14px;
+        margin: 16px 0;
+        align-self: center;
     }
+    .left-container,
+    .right-container {
+        align-self: center;
+    }
+    /* Hide the central timeline line and pointer dots on mobile */
     .container .picture {
         position: relative;
         width: 100%;
-        height: 100%;
+        height: 140px;
     }
-    .border {
-        visibility: hidden;
-        }
-    
-}
-
-
-.container {
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40% ;
-}
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        clip-path: inset(100% 100% 0 0);
-
-    }
-    to {
-        opacity: 1;
-        clip-path: inset(0 0 0 0);
+    .Timeline::before { display: none; }
+    .container .pointer { display: none; }
+    /* Normalize card header layout (no flipped order on right) */
+    .right-container .card .title,
+    .right-container .card .date,
+    .left-container .card .date {
+        order: initial;
+        text-align: left;
     }
 }
+
+/* Ensure links wrapping the cards are clean */
+.container a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Reveal animation controlled by IntersectionObserver */
+.reveal { opacity: 0; transform: translateY(24px); }
+.show { opacity: 1; transform: translateY(0); transition: opacity 500ms ease, transform 500ms ease; }

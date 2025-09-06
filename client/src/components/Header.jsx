@@ -10,8 +10,9 @@ function Header() {
             <div className="Options">
                 <a href="#home">HOME</a>
                 <a href="#about">ABOUT</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="#skills">SKILLS</a>
                 <a href="#contact">CONTACT</a>
-                <a href="https://apillai03.github.io/Certificates/Resume.pdf" target="_blank">RESUME</a>
             </div>
         </div>
     )

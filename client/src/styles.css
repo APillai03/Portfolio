@@ -1,8 +1,8 @@
+/* Base resets (colors and background come from body in index.css) */
 * {
-    color: white;
     margin: 0;
     padding: 0;
-    background-color: rgb(26, 26, 26);
+    box-sizing: border-box;
 }
 .App {
     height: 90vh;
@@ -12,30 +12,34 @@
     text-align: center;
 }
 .Header {
-    height: 10vh;
+    height: 72px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 50px;
-    background-color: rgb(20, 20, 20);
+    padding: 0 24px 0 8px;
+    background-color: var(--surface-1);
+    border-bottom: 1px solid var(--border);
 }
 .Options {
     display: flex;
     justify-content: flex-end;
 }
 .Options a {
+    color: var(--text);
     text-decoration: none;
-    padding: 20px;
+    padding: 14px 16px;
+    border-radius: 10px;
 }
 .Options a:hover {
-    color: firebrick;
+    color: var(--primary);
+    background: rgba(59,210,199,0.08);
 }
 .Options a:focus {
-    outline: 2px solid firebrick;
+    outline: 2px solid var(--primary);
 }
 .logo {
     margin-left: 3px;
-    background-color: rgb(20,20,20);
+    background-color: var(--surface-1);
     justify-content: left;
 }
 .logo img {
@@ -43,6 +47,31 @@
     background-color: #fff;
     height: 9vh;
     margin: 2px;
+}
+
+/* Responsive Header: prevent overflow on small screens */
+@media (max-width: 700px) {
+  .Header {
+    height: auto;            /* allow it to grow if items wrap */
+    padding: 8px 12px;       /* tighter padding */
+    align-items: flex-start; /* room for wrapped items */
+    gap: 8px;
+  }
+  .logo img {
+    height: 36px;            /* smaller logo */
+  }
+  .Options {
+    flex-wrap: wrap;         /* allow wrapping instead of overflow */
+    gap: 6px;
+  }
+  .Options a {
+    padding: 8px 10px;       /* tighter hit area */
+    font-size: 14px;         /* smaller text */
+  }
+}
+
+@media (max-width: 400px) {
+  .Options a { padding: 6px 8px; font-size: 13px; }
 }
 .region1 {
     
@@ -56,8 +85,7 @@
 
 }
 .region1 h1 span {
-    
-    background-image: linear-gradient(to right, #33be56, #29c3ce);
+    background-image: linear-gradient(to right, var(--primary), var(--primary-600));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent; 
@@ -65,10 +93,7 @@
 }
 
 .region1 p{
-    background-image: linear-gradient(to right, #5133be, #ce2968);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent; 
+    color: var(--muted);
     font-family: "Calligraffitti", cursive;
 }
 .region2 {
@@ -96,14 +121,14 @@
     position: absolute;
     width: 100px;
     height: 100px;
-    background: white;
-    border: 1px solid #fff;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
     font-weight: bold;
-    background: linear-gradient(45deg, #ff7eb3, #ff758c);
+    background: linear-gradient(45deg, var(--primary), var(--primary-600));
     
     pointer-events: none;
     
@@ -256,4 +281,97 @@
     .face::before{
         visibility: hidden;
     }
+}
+
+/* ------------------------------ */
+/* New Hero (Intro) Section Styles */
+/* ------------------------------ */
+.Hero {
+  min-height: 86vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 24px;
+}
+
+.Hero__content {
+  max-width: 960px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: #a3a3a3;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.headline {
+  font-size: 72px;
+  line-height: 1.05;
+  letter-spacing: -1.2px;
+  margin-bottom: 12px;
+  background-image: linear-gradient(to right, var(--primary), var(--primary-600));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subhead {
+  color: #cfcfcf;
+  font-size: 18px;
+  max-width: 740px;
+  margin: 0 auto 28px;
+}
+
+.Hero__ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 150ms ease, background 150ms ease, border-color 150ms ease;
+}
+
+.btn:hover { transform: translateY(-2px); border-color: #4a4a4a; }
+.btn:active { transform: translateY(0); }
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--primary), var(--primary-600));
+  border-color: transparent;
+}
+
+.Hero__socials {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.social img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #fff;
+  padding: 6px;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.social img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+@media (max-width: 1000px) {
+  .headline { font-size: 40px; }
+  .subhead { font-size: 16px; }
 }
