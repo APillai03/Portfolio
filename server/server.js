@@ -73,7 +73,7 @@ async function getDb() {
     if (!MONGODB_URI) throw new Error('MONGODB_URI not set in environment');
     if (!mongoClient) {
         console.log('Connecting to MongoDB...');
-        mongoClient = new MongoClient(MONGODB_URI, { useUnifiedTopology: true });
+        mongoClient = new MongoClient(MONGODB_URI);
         await mongoClient.connect();
         console.log('MongoDB connected');
     }
