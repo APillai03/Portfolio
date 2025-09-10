@@ -19,6 +19,7 @@
     padding: 0 24px 0 8px;
     background-color: var(--surface-1);
     border-bottom: 1px solid var(--border);
+    position: relative; /* anchor for dropdown */
 }
 .Options {
     display: flex;
@@ -49,6 +50,40 @@
     margin: 2px;
 }
 
+/* Hamburger button hidden by default (desktop) */
+.Header__menuBtn {
+  display: none;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.Header__menuBtn .bars { display: inline-block; width: 20px; }
+.Header__menuBtn .bars > span {
+  display: block; height: 2px; background: var(--text); margin: 4px 0; border-radius: 2px;
+}
+
+/* Dropdown (mobile) */
+.Header__dropdown {
+  position: absolute;
+  top: 64px;
+  right: 8px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 10;
+}
+.Header__dropdown a { padding: 10px 12px; border-radius: 8px; text-decoration: none; color: var(--text); }
+.Header__dropdown a:hover { background: rgba(59,210,199,0.08); color: var(--primary); }
+
 /* Responsive Header: prevent overflow on small screens */
 @media (max-width: 700px) {
   .Header {
@@ -60,14 +95,9 @@
   .logo img {
     height: 36px;            /* smaller logo */
   }
-  .Options {
-    flex-wrap: wrap;         /* allow wrapping instead of overflow */
-    gap: 6px;
-  }
-  .Options a {
-    padding: 8px 10px;       /* tighter hit area */
-    font-size: 14px;         /* smaller text */
-  }
+  /* Hide desktop options on mobile; show hamburger */
+  .Options { display: none; }
+  .Header__menuBtn { display: inline-flex; }
 }
 
 @media (max-width: 400px) {

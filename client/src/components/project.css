@@ -41,7 +41,6 @@
 
 .container {
     width: 44%;
-    min-height: 200px;
     background-color: var(--surface-2);
     border: 1px solid var(--border);
     margin: 24px;
@@ -106,15 +105,27 @@
     background-color: var(--surface-2);
 }
 
+/* Header rows: desktop vs mobile */
+.header-row { display: flex; }
+.header-mobile { display: none; }
+
 .card .title {
     padding: 16px 10px;
     padding-left: 10px;
-    width: 50%;
+    /* Allow title to take remaining space and truncate */
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .card .date {
     padding: 16px 10px;
-    width: 50%;
+    /* Keep date compact */
+    flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
     color: var(--muted);
 }
 
@@ -179,6 +190,38 @@
     box-shadow: var(--shadow-1);
 }
 
+/* Expand/Collapse toggle button */
+.expand-toggle {
+    border: 1px solid rgba(0,0,0,0.15);
+    background: linear-gradient(180deg, #fff, #f5f5f5);
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    font-size: 18px;
+    line-height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+.expand-toggle:hover {
+    background: linear-gradient(180deg, #fff, #eee);
+}
+.expand-toggle:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Open link in expanded view */
+.open-link {
+    color: var(--primary);
+    font-weight: 600;
+}
+.open-link:hover {
+    text-decoration: underline;
+}
+
 #internship {
     box-shadow: 0 0 0 rgba(0,0,0,0);
 }
@@ -212,6 +255,20 @@
     .left-container .card .date {
         order: initial;
         text-align: left;
+    }
+    /* Switch to hamburger header on mobile */
+    .header-row { display: none; }
+    .header-mobile { display: flex; }
+    .menu-btn {
+        border: 1px solid rgba(0,0,0,0.15);
+        background: linear-gradient(180deg, #fff, #f5f5f5);
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.08);
     }
 }
 
